@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mit-4</title>
+<style>
+.container{
+    width: 100%;
+    height: 100vh;
+
+}
+.input1 input{
+    width: 500px;
+    height: 30px;
+    border-radius: 5px;
+    border: solid black 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.input2 input{
+    width: 500px;
+    height: 30px;
+    border-radius: 5px;
+    border: solid black 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+button{
+    height: 40px;
+    width: 100px;
+    margin-top: 20px;
+    background-color: rgb(53, 53, 237);
+    border: none;
+    border-radius: 2px;
+    color: white;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    margin-left: 80px;
+}
+.create{
+
+}
+.delete button{
+    background-color: beige;
+    color:black;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.task{
+    height: 100px;
+    width: 900px;
+    border: solid black 1px;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    padding: 0 20px;
+    margin-top: 30px;
+    visibility: hidden;
+}
+
+</style>
+
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+
+       
+        <div class="heading">
+        <h1>Add contacts</h1>
+    </div>
+    <div class="input1" >
+        <label>Name</label>  <br>
+        <input type="text" id="input_name">
+    </div>
+    <div class="input2">
+        <label>Email Address</label> <br>
+        <input type="email" id="input_email">
+    </div>
+    <div class="submit">
+        <button type="submit"onclick="createTask()" >submit</button>
+    </div>
+<div  id="task" class="task">
+    <div class="create">
+        <h4 id="name"></h4>
+        <p id="email"></p>
+    </div>
+<div class="delete">
+<button>Delete</button>
+</div>
+
+</div>
+</div>
+</div>
+
+
+<script>
+function createTask(){
+ 
+var input_name=document.getElementById("input_name").value;
+var input_email=document.getElementById("input_email").value;
+
+localStorage.setItem("name",input_name);
+localStorage.setItem("email",input_email);
+
+ var output_name=localStorage.getItem("name",input_name);
+ var output_email=localStorage.getItem("email",input_email);
+
+
+var display_name=document.getElementById("name");
+var display_email=document.getElementById("email");
+var task=document.getElementById("task")
+display_name.innerHTML=output_name;
+
+display_email.innerHTML=output_email;
+
+task.style.visibility="visible";
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+</script>
+</body>
+</html>
